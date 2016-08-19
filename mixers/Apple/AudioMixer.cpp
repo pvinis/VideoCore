@@ -197,10 +197,12 @@ namespace videocore { namespace Apple {
         
         *ioNumDataPackets = numPackets;
         if(!ud->usesOSStruct) {
-            ioData->mBuffers[0].mData = ud->p;
-            ioData->mBuffers[0].mDataByteSize = numPackets * ud->packetSize;
-            ioData->mBuffers[0].mNumberChannels = ud->numChannels;
-            ud->p += numPackets * ud->packetSize;
+            for (int i = 0; i < ud->numChannels; i++) {
+                ioData->mBuffers[i].mData = ud->p;
+                ioData->mBuffers[i].mDataByteSize = numPackets * ud->packetSize;
+                ioData->mBuffers[i].mNumberChannels = (ud->isInterleaved)? ud->numChannels : 1;
+                ud->p += numPackets * ud->packetSize;
+            }
         } else {
             AudioBufferList* ab = (AudioBufferList*) ud->data;
             ioData->mNumberBuffers = ab->mNumberBuffers;
