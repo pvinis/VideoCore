@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.header_dir          = 'videocore'
   s.header_mappings_dir = '.'
 
-  s.source_files        = [ 'mixers/**/*.h*', 'mixers/**/*.cpp', 'mixers/**/*.m*', 
+  s.source_files        = [ 'mixers/**/*.h*', 'mixers/**/*.cpp', 'mixers/**/*.m*',
                             'rtmp/**/*.h*', 'rtmp/**/*.cpp', 'rtmp/**/*.m*',
                             'sources/**/*.h*', 'sources/**/*.cpp', 'sources/**/*.m*',
                             'stream/**/*.h*', 'stream/**/*.cpp', 'stream/**/*.m*',
@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
 
   s.libraries           = 'c++'
 
-  s.dependency          'boost', '~> 1.51.0'
+  s.dependency          'boost', '~> 1.59.0'
   s.dependency          'glm', '~> 0.9.4.6'
   s.dependency          'UriParser-cpp', '~> 0.1.3'
 
